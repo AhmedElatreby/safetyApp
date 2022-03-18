@@ -13,13 +13,12 @@ class LoggedInWidget extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Logged In',
         ),
         centerTitle: true,
         actions: [
           TextButton(
-            child: Text('Logout'),
             onPressed: () {
               final provider = Provider.of<GoogleSignInProvider>(
                 context,
@@ -27,18 +26,29 @@ class LoggedInWidget extends StatelessWidget {
               );
               provider.logout();
             },
+            child: const Text(
+              'Logout',
+            ),
+            style: TextButton.styleFrom(
+                primary: Color.fromARGB(255, 21, 2, 128),
+                textStyle: const TextStyle(
+                  fontSize: 18,
+                )),
           ),
         ],
       ),
       body: Container(
         alignment: Alignment.center,
-        color: Colors.blueGrey.shade900,
+        color: Color.fromARGB(255, 18, 18, 19),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               'Profile',
-              style: TextStyle(fontSize: 24),
+              style: TextStyle(
+                fontSize: 24,
+                color: Colors.white,
+              ),
             ),
             SizedBox(height: 32),
             CircleAvatar(

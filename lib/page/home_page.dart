@@ -14,15 +14,15 @@ class HomePage extends StatelessWidget {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (snapshot.hasData) {
-              return LoggedInWidget();
             } else if (snapshot.hasError) {
               return const Center(
                 child: Text(
-                  'Something Went Wrong',
+                  "Something went wrong!",
                   style: TextStyle(fontSize: 20),
                 ),
               );
+            } else if (snapshot.hasData) {
+              return LoggedInWidget();
             } else {
               return SignUpWidget();
             }
